@@ -1,3 +1,4 @@
+<?php include 'connection.php';?>
 <?php
 $stmt = $conn->prepare("INSERT INTO clients (first_name,last_name,email,phone,organization,message) VALUES (?, ?,?,?,?,?)");
 $stmt->bind_param("ssssss",$first_name,$last_name,$email,$phone,$organization,$message);
