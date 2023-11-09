@@ -1,22 +1,23 @@
 <?php include 'connection.php';?>
 <?php
-$stmt = $conn->prepare("INSERT INTO clients (first_name,last_name,email,phone,organization,message) VALUES (?, ?,?,?,?,?)");
-$stmt->bind_param("ssssss",$first_name,$last_name,$email,$phone,$organization,$message);
-
-// Set parameters and execute
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$organization = $_POST['organization'];
-$message = $_POST['message'];
-
-$stmt->execute();
-
-echo "New records created successfully";
-
-$stmt->close();
-$conn->close();
+if ($_POST['first_name'] != '' && $_POST['last_name'] != '' && $_POST['email'] != '' && $_POST['phone'] != '' && $_POST['organization'] != '' && $_POST['message'] != '') {
+    $sql = "CREATE TABLE IF NOT EXISTS clients (
+        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        first_name VARCHAR(30) NOT NULL,
+        last_name VARCHAR(30) NOT NULL,
+        email VARCHAR(50),
+        phone VARCHAR(50),
+        organization VARCHAR(50),
+        message VARCHAR(50),
+        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        )";
+        
+    if ($conn->query($sql) === TRUE) {
+        echo "Table clients created successfully";
+    } else {
+        echo "Error creating table: " . $conn->error;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
