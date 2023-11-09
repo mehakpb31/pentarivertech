@@ -1,6 +1,6 @@
 <?php include 'connection.php';?>
 <?php
-if ($_POST['first_name'] != '' && $_POST['last_name'] != '' && $_POST['email'] != '' && $_POST['phone'] != '' && $_POST['organization'] != '' && $_POST['message'] != '') {
+if (isset($_POST['submit'])) {
     $sql = "INSERT INTO clients (first_name, last_name, email, phone, organization, message)
     VALUES ('" . $_POST['first_name'] . "', '" . $_POST['last_name'] . "', '" . $_POST['email'] . "', '" . $_POST['phone'] . "', '" . $_POST['organization'] . "', '" . $_POST['message'] . "')";
     if ($conn->query($sql) === TRUE) {
@@ -79,7 +79,7 @@ if ($_POST['first_name'] != '' && $_POST['last_name'] != '' && $_POST['email'] !
                     <!-- Send a message section -->
                     <div class="w-full lg:w-1/2 px-4 mb-8">
                         <h2 class="text-3xl font-bold mb-4 text-gray-200">Send us a message</h2>
-                        <form action="career.php" class="space-y-4">
+                        <form action="contact.php" class="space-y-4">
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white"id="first_name" type="text"
                                 placeholder="First Name *" required>
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white" id="last_name" type="text"
