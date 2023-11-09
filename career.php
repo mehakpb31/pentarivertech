@@ -13,8 +13,8 @@ if ($conn->connect_error) {
 }
 
 // Prepare and bind
-$stmt = $conn->prepare("INSERT INTO clients (first_name,last_name,email,phone,organization,message) VALUES (?, ?)");
-$stmt->bind_param("ss",$first_name,$last_name,$email,$phone,$organization,$message);
+$stmt = $conn->prepare("INSERT INTO clients (first_name,last_name,email,phone,organization,message) VALUES (?, ?,?,?,?,?)");
+$stmt->bind_param("ssssss",$first_name,$last_name,$email,$phone,$organization,$message);
 
 // Set parameters and execute
 $first_name = $_POST['first_name'];
