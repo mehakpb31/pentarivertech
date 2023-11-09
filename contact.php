@@ -1,22 +1,13 @@
 <?php include 'connection.php';?>
 <?php
 if ($_POST['first_name'] != '' && $_POST['last_name'] != '' && $_POST['email'] != '' && $_POST['phone'] != '' && $_POST['organization'] != '' && $_POST['message'] != '') {
-    $sql = "CREATE TABLE IF NOT EXISTS clients (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        first_name VARCHAR(30) NOT NULL,
-        last_name VARCHAR(30) NOT NULL,
-        email VARCHAR(50),
-        phone VARCHAR(50),
-        organization VARCHAR(50),
-        message VARCHAR(50),
-        reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-        )";
-        
+    $sql = "INSERT INTO clients (first_name, last_name, email, phone, organization, message)
+    VALUES ('" . $_POST['first_name'] . "', '" . $_POST['last_name'] . "', '" . $_POST['email'] . "', '" . $_POST['phone'] . "', '" . $_POST['organization'] . "', '" . $_POST['message'] . "')";
     if ($conn->query($sql) === TRUE) {
-        echo "Table clients created successfully";
+        echo "New record created successfully";
+        header("Location: contact.php");
     } else {
-        echo "Error creating table: " . $conn->error;
-    }
+        echo "Error: " . $sql . "<br>" . $conn->error;
 }
 ?>
 <!DOCTYPE html>
