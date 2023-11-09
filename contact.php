@@ -82,17 +82,18 @@ if (isset($_POST['submit'])) {
                         <h2 class="text-3xl font-bold mb-4 text-gray-200">Send us a message</h2>
                         <form action="contact.php" class="space-y-4" method="POST">
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white"id="first_name" type="text"
-                                placeholder="First Name *" required>
+                                placeholder="First Name *" required name="first_name">
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white" id="last_name" type="text"
-                                placeholder="Last Name *" required>
+                                placeholder="Last Name *" required name="last_name">
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white" id="email" type="email"
-                                placeholder="Email *" required>
+                                placeholder="Email *" required name="email">
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white" id="Phone" type="text"
-                                placeholder="Phone *" required>
+                                placeholder="Phone *" required name="phone">
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white" id="organization" type="text"
-                                placeholder="Organization *" required>
+                                placeholder="Organization *" required name="organization">
                             <textarea class="w-full p-3 rounded-md bg-gray-700 text-white" id ="message" placeholder="Message"
-                                required></textarea>
+                                required name="message"
+                                ></textarea>
                             <button
                                 class="w-full p-3 rounded-md bg-orange-700 hover:bg-orange-800 transition-colors"
                                 type="submit" name="submit"
