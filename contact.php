@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
                     <!-- Send a message section -->
                     <div class="w-full lg:w-1/2 px-4 mb-8">
                         <h2 class="text-3xl font-bold mb-4 text-gray-200">Send us a message</h2>
-                        <form action="contact.php" class="space-y-4">
+                        <form action="contact.php" class="space-y-4" method="POST">
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white"id="first_name" type="text"
                                 placeholder="First Name *" required>
                             <input class="w-full p-3 rounded-md bg-gray-700 text-white" id="last_name" type="text"
@@ -94,7 +94,9 @@ if (isset($_POST['submit'])) {
                             <textarea class="w-full p-3 rounded-md bg-gray-700 text-white" id ="message" placeholder="Message"
                                 required></textarea>
                             <button
-                                class="w-full p-3 rounded-md bg-orange-700 hover:bg-orange-800 transition-colors">Submit</button>
+                                class="w-full p-3 rounded-md bg-orange-700 hover:bg-orange-800 transition-colors"
+                                type="submit" name="submit"
+                                >Submit</button>
                         </form>
                     </div>
                 </div>
